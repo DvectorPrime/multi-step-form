@@ -12,6 +12,7 @@ html{
   --element-bg-color: #f8f9fe;
   --step-bg-color: #c2e6fc;
   --blue: #032958;
+  --special-blue: #483eff;
   --gray: #9c9da2;
   --outline-gray: #9c9da2a1;
   --background-gray: #f8f9fe;
@@ -158,7 +159,7 @@ div.step-info{
   margin-bottom: 15px;
 }
 
-.step1-input-field, .step2-input-field, .step3-input-field{
+.step1-input-field, .step2-input-field, .step3-input-field, .step4-input-field{
   margin-bottom: 20px;
 }
 
@@ -308,6 +309,79 @@ div.step-info{
   color: #473EFF
 }
 
+/*Step Four Design*/
+.final-billing-info{
+  background-color: var(--background-gray);
+  padding: 20px 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.final-billing-info p{
+  font-size: 0.85rem;
+}
+
+.final-billing-type{
+  font-family: "Ubuntu-Bold";
+  color: var(--blue);
+  margin-bottom: 5px
+}
+
+.summary-flex, .summary-main-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.summary-flex:last-of-type{
+  margin-bottom: 0;
+}
+
+.summary-flex p:first-of-type, .summary-main-flex p:first-of-type{
+  color: var(--gray);
+  font-family: "Ubuntu-Medium"
+}
+
+.summary-flex p:last-of-type{
+  color: var(--blue);
+  font-family: "Ubuntu-Medium"
+}
+
+.change-billing-type{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.main-billing-amount{
+  font-family: "Ubuntu-Bold" !important;
+  color: var(--blue) !important;
+}
+
+.addon-divider{
+  margin-bottom: 15px;
+}
+
+.summary-total-flex{
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-total-flex p:first-of-type{
+  font-size: 0.85rem;
+  color: var(--gray);
+  font-family: "Ubuntu-Medium"
+}
+
+.summary-total-flex p:last-of-type{
+  font-size: 1rem;
+  color: var(--special-blue);
+  font-family: "Ubuntu-Bold"
+}
+
 @media only screen and (min-width: 600px) {
   .form-content{
     max-height: 60%;
@@ -382,6 +456,7 @@ div.step-info{
     transform: translate(0%, 0%);
     width: auto;
     box-shadow: none;
+    overflow: auto;
     margin-left: 25px;
     max-height: calc(100% - 110px);
   }

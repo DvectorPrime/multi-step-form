@@ -54,7 +54,14 @@ function SelectPlan(props){
             return {
                 ...prevState,
                 userBillingDuration : "monthly",
-                billingType: ""
+                billingType: "",
+                billingAmount: 0,
+                onlineService: false,
+                onlineServiceCost: 0,
+                largerStorage: false,
+                largerStorageCost: 0,
+                customProfile: false,
+                customProfileCost: 0
             }
         })
        }

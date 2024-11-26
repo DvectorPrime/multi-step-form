@@ -4,6 +4,7 @@ import StepIndicator from './step-indicator';
 import PersonalInfo from './PersonalInfo';
 import SelectPlan from './SelectPlan';
 import AddOns from './AddOns';
+import Summary from './Summary';
 
 function Main() {
   
@@ -15,14 +16,14 @@ function Main() {
     billingType: "",
     billingAmount: 0,
     onlineService: false,
-    onlineServiceCost: "",
+    onlineServiceCost: 0,
     largerStorage: false,
-    largerStorageCost: "",
+    largerStorageCost: 0,
     customProfile: false,
-    customProfileCost: "",
+    customProfileCost: 0,
   })
 
-  const [currentStep, setCurrentStep] = useState(3)
+  const [currentStep, setCurrentStep] = useState(4)
 
   const userId = useId();
 
@@ -36,7 +37,7 @@ function Main() {
     stepindicatorelements.push(<StepIndicator 
       key={currentValue}
       value={currentValue} 
-      isActive={currentStep === currentValue} 
+      isActive={String(currentValue) === String(currentStep)} 
       stepMsg={stepMsg[currentValue -1]} 
       />
     )
@@ -81,8 +82,13 @@ function Main() {
       return
     } else if (currentStep === 3){
       setCurrentStep(prevState => prevState + 1)
+    } else if (currentStep === 4){
+      setCurrentStep("4")
     }
+  }
 
+  const progressBtnStyle = {
+    backgroundColor: currentStep < 4 ? "#032958" : "#483eff"
   }
 
   return (
@@ -112,11 +118,18 @@ function Main() {
           setFormInfo = {setFormInfo}
           currentStep = {currentStep}
         />
+        <Summary 
+          idPrefix = {userId}
+          formInfo = {formInfo}
+          setFormInfo = {setFormInfo}
+          currentStep = {currentStep}
+          setCurrentStep = {setCurrentStep}
+        />
         <div id="error-message"></div>
       </div>
       <div className="navigate-menu">
         {currentStep !==1 && <button className="go-back-btn" onClick={prevStep}>Go Back</button>}
-        <button className="next-step-btn" onClick={nextStep}>Next Step</button>
+        <button className="next-step-btn" style={progressBtnStyle} onClick={nextStep}>{currentStep < 4 ? "Next Step" : "Confirm"}</button>
       </div>
     </main>
   );

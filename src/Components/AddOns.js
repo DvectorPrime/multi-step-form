@@ -3,7 +3,6 @@ import blankCheckBox from "../assets/images/check_box_blanked.svg"
 import markedCheckedBox from "../assets/images/check_box_marked.svg"
 
 function AddOns(props) {
-
     const [addOnsPrices, setAddOnsPrices] = useState({
         "onlineService" : 1,
         "largerStorage" : 2,
@@ -18,7 +17,6 @@ function AddOns(props) {
         const {name, checked} = event.target
 
         props.setFormInfo(prevState => {
-            console.log(event)
             return (
                 {
                     ...prevState,
@@ -60,10 +58,6 @@ function AddOns(props) {
             })
         }      
         
-    }, [props.formInfo])
-
-    useEffect(() => {
-        console.log(props.formInfo)
     }, [props.formInfo])
 
     return(
