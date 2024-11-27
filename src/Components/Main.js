@@ -5,6 +5,7 @@ import PersonalInfo from './PersonalInfo';
 import SelectPlan from './SelectPlan';
 import AddOns from './AddOns';
 import Summary from './Summary';
+import ThankYou from './ThankYou';
 
 function Main() {
   
@@ -23,7 +24,7 @@ function Main() {
     customProfileCost: 0,
   })
 
-  const [currentStep, setCurrentStep] = useState(4)
+  const [currentStep, setCurrentStep] = useState(1)
 
   const userId = useId();
 
@@ -125,12 +126,18 @@ function Main() {
           currentStep = {currentStep}
           setCurrentStep = {setCurrentStep}
         />
+        <ThankYou
+          currentStep = {currentStep}
+        />
         <div id="error-message"></div>
       </div>
-      <div className="navigate-menu">
-        {currentStep !==1 && <button className="go-back-btn" onClick={prevStep}>Go Back</button>}
-        <button className="next-step-btn" style={progressBtnStyle} onClick={nextStep}>{currentStep < 4 ? "Next Step" : "Confirm"}</button>
-      </div>
+      {
+        currentStep !== "4" &&
+        <div className="navigate-menu">
+          {currentStep !== 1 && <button className="go-back-btn" onClick={prevStep}>Go Back</button>}
+          <button className="next-step-btn" style={progressBtnStyle} onClick={nextStep}>{currentStep < 4 ? "Next Step" : "Confirm"}</button>
+        </div>
+      }
     </main>
   );
 }

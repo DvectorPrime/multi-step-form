@@ -133,7 +133,7 @@ div.step-info{
 
 .next-step-btn:hover{
   color: var(--blue);
-  background-color: var(--white);
+  background-color: var(--white) !important;
 }
 
 
@@ -382,6 +382,35 @@ div.step-info{
   font-family: "Ubuntu-Bold"
 }
 
+/*Thank You UI Design*/
+
+.thank-you-section{
+  padding-top: 40px;
+  padding-bottom: 30px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center !important;
+}
+
+.thank-you-section img{
+  margin-top: auto;
+  height: 75px;
+  margin-bottom: 25px;
+}
+
+.thank-you-section h2{
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.thank-you-section p{
+  font-family: "Ubuntu-Medium";
+  font-size: 1.05rem;
+  line-height: 1.5rem;
+  color: var(--gray);
+}
+
 @media only screen and (min-width: 600px) {
   .form-content{
     max-height: 60%;
@@ -454,7 +483,7 @@ div.step-info{
     grid-row-start: 1;
     grid-row-end: 2;
     transform: translate(0%, 0%);
-    width: auto;
+    width: 40vw;
     box-shadow: none;
     overflow: auto;
     margin-left: 25px;
@@ -542,6 +571,10 @@ div.step-info{
 .billing-plan-price{
   font-family: "Ubuntu-Regular";
   color: var(--gray)
+}
+
+.thank-you-section{
+  margin-top: 6vh;
 }
 
 }
